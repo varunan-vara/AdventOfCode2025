@@ -244,7 +244,7 @@ case $OUTPUT_MODE in
         create_challenge "${CREATE_CHALLENGE_NAME}"
         ;;
     $MODE_RUN)
-        local PROJECT_NAME=""
+        PROJECT_NAME=""
 
         if [[ "$RUN_CHALLENGE_NAME" =~ ^[0-9]+$ ]]; then
             if (( 10#$RUN_CHALLENGE_NAME < 10 )); then

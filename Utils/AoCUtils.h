@@ -3,7 +3,8 @@
 
 #include <vector>
 #include <string>
-#include <variant>
+#include <fstream>
+#include <iostream>
 
 namespace AoCUtils
 {

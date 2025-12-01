@@ -1,3 +1,4 @@
-# Advent of Code Template
+# Advent of Code 2025
 
-My personal template repository that I use 
+Completed Challenges:
+ - Day 1

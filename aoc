@@ -177,7 +177,6 @@ create_challenge() {
             print_help_msg 1 "Directory string cannot contain character '/'"
         else
             mkdir -p ${CHALLENGE_DIR}/${TARGET_DIR}
-            touch ${CHALLENGE_DIR}/${TAREGT_DIR}/input.txt
             for template_file in "$TEMPLATE_DIR"/*; do
                 if [[ "$template_file" == "$TARGET_DIR/*" ]]; then
                     continue

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <regex>
 #include <sstream>
+#include <stdexcept>
 
 namespace AoCUtils
 {
@@ -14,6 +15,8 @@ namespace AoCUtils
         private:
             std::vector<std::string> parsedInput;
             std::vector<std::string> regexConvert(std::string input, std::string regex);
+            long long vecSize;
+            long long charSize = 0;
         public:
             // Constructor Function for InputFile, a class that parses the project input from a txt file
             //
@@ -32,6 +35,11 @@ namespace AoCUtils
             //
             // Parameters: none
             int numberOfLines();
+
+            // Returns the number of characters in one line of input (last line)
+            //
+            // Parameters: none
+            int numberOfChars();
 
             // Get the file as one large string
             //
@@ -64,13 +72,25 @@ namespace AoCUtils
             // - inputString: string to be split
             // - delimitterValue: character to split string by
             static std::vector<std::string> getDelimited2DArray(std::string inputString, char delimitterValue);
-            // Using a speicifc character, delimit each value in inputVector
+            // Using a specifc character, delimit each value in inputVector
             //
             // Parameters:
             // - inputVector: array of strings to be delimitted
             // - delimitterValue: character to split string by
             static std::vector<std::vector<std::string>> getDelimited2DArray(std::vector<std::string> inputVector, char delimitterValue);
-            std::string getGridValue(int xIndex, int yIndex);
+            // Returns the value of a char at a point in the string, assuming newlines are different y entries
+            //
+            // Parameters:
+            //  - xIndex: Along a line, from left to right
+            //  - yIndex: Along a file, from top to bottom
+            char getGridValue(int xIndex, int yIndex);
+            // Set a grid value in the inputString (does not change size or anything)
+            //
+            // Parameters:
+            //  - xIndex: Along a line, from left to right
+            //  - yIndex: Along a file, from top to bottom
+            //  - value: char value to be set
+            void setGridValue(int xIndex, int yIndex, char value);
             int getGridValue(int xIndex, int yIndex, int multiplier);
     };
 } // namespace AoCUtils

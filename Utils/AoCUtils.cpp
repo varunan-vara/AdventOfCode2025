@@ -15,10 +15,15 @@ namespace AoCUtils {
         std::string line;
 
         while (std::getline(file_stream, line)) {
+            // Cache this
+            charSize = line.size();
             parsedInput.push_back(std::move(line));
         }
 
         file_stream.close();
+
+        // Cache this
+        vecSize = parsedInput.size();
     }
 
     InputFile::~InputFile() {
@@ -30,7 +35,11 @@ namespace AoCUtils {
     }
 
     int InputFile::numberOfLines() {
-        return parsedInput.size();
+        return vecSize;
+    }
+
+    int InputFile::numberOfChars() {
+        return charSize;
     }
 
     std::string InputFile::getFullString() {
@@ -141,5 +150,17 @@ namespace AoCUtils {
         }
 
         return return_vector;
+    }
+
+    char InputFile::getGridValue(int xIndex, int yIndex) {
+        return parsedInput[yIndex][xIndex];
+    }
+
+    void InputFile::setGridValue(int xIndex, int yIndex, char value) {
+        if (value == 0) {
+            throw std::runtime_error("Cannot write null value to string");
+        }
+
+        parsedInput[yIndex][xIndex] = value;
     }
 }

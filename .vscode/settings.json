@@ -35,6 +35,7 @@
         "algorithm": "cpp",
         "regex": "cpp",
         "unordered_map": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "istream": "cpp"
     }
 }
